@@ -90,3 +90,11 @@ declare_deprecated_lint! {
     pub ALMOST_SWAPPED,
     "this lint has been renamed to `incorrect_swaps`"
 }
+
+/// **What it does:** Nothing. This lint has been deprecated.
+///
+/// **Deprecation reason:** This lint has been renamed to `approximate_known_constants`.
+declare_deprecated_lint! {
+    pub APPROX_CONSTANT,
+    "this lint has been renamed to `approximate_known_constants`"
+}

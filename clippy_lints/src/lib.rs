@@ -265,6 +265,10 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         "almost_swapped",
         "this lint has been renamed to `incorrect_swaps`",
     );
+    store.register_removed(
+        "approx_constant",
+        "this lint has been renamed to `approximate_known_constants`",
+    );
     // end deprecated lints, do not remove this comment, it’s used in `update_lints`
 
     reg.register_late_lint_pass(box serde_api::Serde);
@@ -474,7 +478,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
     ]);
 
     reg.register_lint_group("clippy", vec![
-        approx_const::APPROX_CONSTANT,
+        approx_const::APPROXIMATE_KNOWN_CONSTANTS,
         assign_ops::ASSIGN_OP_PATTERN,
         assign_ops::MISREFACTORED_ASSIGN_OP,
         attrs::DEPRECATED_SEMVER,
@@ -837,7 +841,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
     ]);
 
     reg.register_lint_group("clippy_correctness", vec![
-        approx_const::APPROX_CONSTANT,
+        approx_const::APPROXIMATE_KNOWN_CONSTANTS,
         attrs::DEPRECATED_SEMVER,
         attrs::USELESS_ATTRIBUTE,
         bit_mask::BAD_BIT_MASK,

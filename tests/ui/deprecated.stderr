@@ -36,5 +36,11 @@ error: lint `almost_swapped` has been removed: `this lint has been renamed to `i
 14 | #[warn(almost_swapped)]
    |        ^^^^^^^^^^^^^^
 
-error: aborting due to 6 previous errors
+error: lint `approx_constant` has been removed: `this lint has been renamed to `approximate_known_constants``
+  --> $DIR/deprecated.rs:16:8
+   |
+16 | #[warn(approx_constant)]
+   |        ^^^^^^^^^^^^^^^
+
+error: aborting due to 7 previous errors
 

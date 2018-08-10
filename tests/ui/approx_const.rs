@@ -1,7 +1,7 @@
 
 
 
-#[warn(approx_constant)]
+#[warn(approximate_known_constants)]
 #[allow(unused, shadow_unrelated, similar_names, unreadable_literal)]
 fn main() {
     let my_e = 2.7182;

@@ -13,4 +13,6 @@
 
 #[warn(almost_swapped)]
 
+#[warn(approx_constant)]
+
 fn main() {}

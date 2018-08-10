@@ -28,7 +28,7 @@ use syntax::symbol;
 /// let x = 3.14;
 /// ```
 declare_clippy_lint! {
-    pub APPROX_CONSTANT,
+    pub APPROXIMATE_KNOWN_CONSTANTS,
     correctness,
     "the approximate of a known float constant (in `std::fXX::consts`)"
 }
@@ -58,7 +58,7 @@ pub struct Pass;
 
 impl LintPass for Pass {
     fn get_lints(&self) -> LintArray {
-        lint_array!(APPROX_CONSTANT)
+        lint_array!(APPROXIMATE_KNOWN_CONSTANTS)
     }
 }
 
@@ -86,7 +86,7 @@ fn check_known_consts(cx: &LateContext<'_, '_>, e: &Expr, s: symbol::Symbol, mod
             if is_approx_const(constant, &s, min_digits) {
                 span_lint(
                     cx,
-                    APPROX_CONSTANT,
+                    APPROXIMATE_KNOWN_CONSTANTS,
                     e.span,
                     &format!(
                         "approximate value of `{}::consts::{}` found. \
