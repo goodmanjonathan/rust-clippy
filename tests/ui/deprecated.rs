@@ -11,4 +11,6 @@
 
 #[warn(misaligned_transmute)]
 
+#[warn(almost_swapped)]
+
 fn main() {}

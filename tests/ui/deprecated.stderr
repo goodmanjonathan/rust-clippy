@@ -30,5 +30,11 @@ error: lint `misaligned_transmute` has been removed: `this lint has been split i
 12 | #[warn(misaligned_transmute)]
    |        ^^^^^^^^^^^^^^^^^^^^
 
-error: aborting due to 5 previous errors
+error: lint `almost_swapped` has been removed: `this lint has been renamed to `incorrect_swaps``
+  --> $DIR/deprecated.rs:14:8
+   |
+14 | #[warn(almost_swapped)]
+   |        ^^^^^^^^^^^^^^
+
+error: aborting due to 6 previous errors
 

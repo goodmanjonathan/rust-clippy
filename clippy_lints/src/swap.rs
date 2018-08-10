@@ -38,7 +38,7 @@ declare_clippy_lint! {
 /// b = a;
 /// ```
 declare_clippy_lint! {
-    pub ALMOST_SWAPPED,
+    pub INCORRECT_SWAPS,
     correctness,
     "`foo = bar; bar = foo` sequence"
 }
@@ -48,7 +48,7 @@ pub struct Swap;
 
 impl LintPass for Swap {
     fn get_lints(&self) -> LintArray {
-        lint_array![MANUAL_SWAP, ALMOST_SWAPPED]
+        lint_array![MANUAL_SWAP, INCORRECT_SWAPS]
     }
 }
 
@@ -144,7 +144,7 @@ fn check_manual_swap(cx: &LateContext<'_, '_>, block: &Block) {
     }
 }
 
-/// Implementation of the `ALMOST_SWAPPED` lint.
+/// Implementation of the `INCORRECT_SWAPS` lint.
 fn check_suspicious_swap(cx: &LateContext<'_, '_>, block: &Block) {
     for w in block.stmts.windows(2) {
         if_chain! {
@@ -171,7 +171,7 @@ fn check_suspicious_swap(cx: &LateContext<'_, '_>, block: &Block) {
                 let span = first.span.to(second.span);
 
                 span_lint_and_then(cx,
-                                   ALMOST_SWAPPED,
+                                   INCORRECT_SWAPS,
                                    span,
                                    &format!("this looks like you are trying to swap{}", what),
                                    |db| {

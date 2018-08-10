@@ -82,3 +82,11 @@ declare_deprecated_lint! {
     pub MISALIGNED_TRANSMUTE,
     "this lint has been split into cast_ptr_alignment and transmute_ptr_to_ptr"
 }
+
+/// **What it does:** Nothing. This lint has been deprecated.
+///
+/// **Deprecation reason:** This lint has been renamed to `incorrect_swaps`.
+declare_deprecated_lint! {
+    pub ALMOST_SWAPPED,
+    "this lint has been renamed to `incorrect_swaps`"
+}

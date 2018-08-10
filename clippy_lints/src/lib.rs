@@ -261,6 +261,10 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         "misaligned_transmute",
         "this lint has been split into cast_ptr_alignment and transmute_ptr_to_ptr",
     );
+    store.register_removed(
+        "almost_swapped",
+        "this lint has been renamed to `incorrect_swaps`",
+    );
     // end deprecated lints, do not remove this comment, it’s used in `update_lints`
 
     reg.register_late_lint_pass(box serde_api::Serde);
@@ -640,7 +644,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         strings::STRING_LIT_AS_BYTES,
         suspicious_trait_impl::SUSPICIOUS_ARITHMETIC_IMPL,
         suspicious_trait_impl::SUSPICIOUS_OP_ASSIGN_IMPL,
-        swap::ALMOST_SWAPPED,
+        swap::INCORRECT_SWAPS,
         swap::MANUAL_SWAP,
         temporary_assignment::TEMPORARY_ASSIGNMENT,
         transmute::CROSSPOINTER_TRANSMUTE,
@@ -876,7 +880,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         serde_api::SERDE_API_MISUSE,
         suspicious_trait_impl::SUSPICIOUS_ARITHMETIC_IMPL,
         suspicious_trait_impl::SUSPICIOUS_OP_ASSIGN_IMPL,
-        swap::ALMOST_SWAPPED,
+        swap::INCORRECT_SWAPS,
         transmute::WRONG_TRANSMUTE,
         types::ABSURD_EXTREME_COMPARISONS,
         types::CAST_PTR_ALIGNMENT,
