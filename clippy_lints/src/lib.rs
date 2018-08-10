@@ -273,6 +273,10 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         "zero_width_space",
         "this lint has been renamed to `zero_width_spaces`",
     );
+    store.register_removed(
+        "unused_collect",
+        "replaced by the #[must_used] attribute on `collect`",
+    );
     // end deprecated lints, do not remove this comment, it’s used in `update_lints`
 
     reg.register_late_lint_pass(box serde_api::Serde);
@@ -559,7 +563,6 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         loops::NEEDLESS_RANGE_LOOP,
         loops::NEVER_LOOP,
         loops::REVERSE_RANGE_LOOP,
-        loops::UNUSED_COLLECT,
         loops::WHILE_IMMUTABLE_CONDITION,
         loops::WHILE_LET_LOOP,
         loops::WHILE_LET_ON_ITERATOR,
@@ -904,7 +907,6 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         escape::BOXED_LOCAL,
         large_enum_variant::LARGE_ENUM_VARIANT,
         loops::MANUAL_MEMCPY,
-        loops::UNUSED_COLLECT,
         methods::EXPECT_FUN_CALL,
         methods::ITER_NTH,
         methods::OR_FUN_CALL,

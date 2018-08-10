@@ -197,25 +197,6 @@ declare_clippy_lint! {
     "`loop { if let { ... } else break }`, which can be written as a `while let` loop"
 }
 
-/// **What it does:** Checks for using `collect()` on an iterator without using
-/// the result.
-///
-/// **Why is this bad?** It is more idiomatic to use a `for` loop over the
-/// iterator instead.
-///
-/// **Known problems:** None.
-///
-/// **Example:**
-/// ```rust
-/// vec.iter().map(|x| /* some operation returning () */).collect::<Vec<_>>();
-/// ```
-declare_clippy_lint! {
-    pub UNUSED_COLLECT,
-    perf,
-    "`collect()`ing an iterator without using the result; this is usually better \
-     written as a for loop"
-}
-
 /// **What it does:** Checks for loops over ranges `x..y` where both `x` and `y`
 /// are constant and `x` is greater or equal to `y`, unless the range is
 /// reversed or has a negative `.step_by(_)`.
@@ -392,7 +373,6 @@ impl LintPass for Pass {
             FOR_LOOP_OVER_RESULT,
             FOR_LOOP_OVER_OPTION,
             WHILE_LET_LOOP,
-            UNUSED_COLLECT,
             REVERSE_RANGE_LOOP,
             EXPLICIT_COUNTER_LOOP,
             EMPTY_LOOP,
@@ -515,22 +495,6 @@ impl<'a, 'tcx> LateLintPass<'a, 'tcx> for Pass {
         // check for while loops which conditions never change
         if let ExprKind::While(ref cond, _, _) = expr.node {
             check_infinite_loop(cx, cond, expr);
-        }
-    }
-
-    fn check_stmt(&mut self, cx: &LateContext<'a, 'tcx>, stmt: &'tcx Stmt) {
-        if let StmtKind::Semi(ref expr, _) = stmt.node {
-            if let ExprKind::MethodCall(ref method, _, ref args) = expr.node {
-                if args.len() == 1 && method.ident.name == "collect" && match_trait_method(cx, expr, &paths::ITERATOR) {
-                    span_lint(
-                        cx,
-                        UNUSED_COLLECT,
-                        expr.span,
-                        "you are collect()ing an iterator and throwing away the result. \
-                         Consider using an explicit for loop to exhaust the iterator",
-                    );
-                }
-            }
         }
     }
 }

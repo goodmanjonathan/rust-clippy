@@ -1,11 +1,3 @@
-error: you are collect()ing an iterator and throwing away the result. Consider using an explicit for loop to exhaust the iterator
-  --> $DIR/infinite_iter.rs:10:5
-   |
-10 |     repeat(0_u8).collect::<Vec<_>>(); // infinite iter
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
-   = note: `-D unused-collect` implied by `-D warnings`
-
 error: infinite iteration detected
   --> $DIR/infinite_iter.rs:10:5
    |
@@ -96,5 +88,5 @@ error: possible infinite iteration detected
 30 |     (0..).all(|x| x == 24); // maybe infinite iter
    |     ^^^^^^^^^^^^^^^^^^^^^^
 
-error: aborting due to 14 previous errors
+error: aborting due to 13 previous errors
 

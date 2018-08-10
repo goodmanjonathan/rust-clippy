@@ -17,4 +17,6 @@
 
 #[warn(zero_width_space)]
 
+#[warn(unused_collect)]
+
 fn main() {}

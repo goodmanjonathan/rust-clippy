@@ -106,3 +106,11 @@ declare_deprecated_lint! {
     pub ZERO_WIDTH_SPACE,
     "this lint has been renamed to `zero_width_spaces`"
 }
+
+/// **What it does:** Nothing. This lint has been deprecated.
+///
+/// **Deprecation reason:** This lint has been replaced by the #[must_used] attribute on `collect`.
+declare_deprecated_lint! {
+    pub UNUSED_COLLECT,
+    "replaced by the #[must_used] attribute on `collect`"
+}

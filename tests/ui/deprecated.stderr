@@ -48,5 +48,11 @@ error: lint `zero_width_space` has been removed: `this lint has been renamed to 
 18 | #[warn(zero_width_space)]
    |        ^^^^^^^^^^^^^^^^
 
-error: aborting due to 8 previous errors
+error: lint `unused_collect` has been removed: `replaced by the #[must_used] attribute on `collect``
+  --> $DIR/deprecated.rs:20:8
+   |
+20 | #[warn(unused_collect)]
+   |        ^^^^^^^^^^^^^^
+
+error: aborting due to 9 previous errors
 
