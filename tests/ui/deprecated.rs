@@ -15,4 +15,6 @@
 
 #[warn(approx_constant)]
 
+#[warn(zero_width_space)]
+
 fn main() {}

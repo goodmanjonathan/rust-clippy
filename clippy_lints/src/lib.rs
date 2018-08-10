@@ -269,6 +269,10 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         "approx_constant",
         "this lint has been renamed to `approximate_known_constants`",
     );
+    store.register_removed(
+        "zero_width_space",
+        "this lint has been renamed to `zero_width_spaces`",
+    );
     // end deprecated lints, do not remove this comment, it’s used in `update_lints`
 
     reg.register_late_lint_pass(box serde_api::Serde);
@@ -676,7 +680,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         types::UNIT_ARG,
         types::UNIT_CMP,
         types::UNNECESSARY_CAST,
-        unicode::ZERO_WIDTH_SPACE,
+        unicode::ZERO_WIDTH_SPACES,
         unsafe_removed_from_name::UNSAFE_REMOVED_FROM_NAME,
         unused_io_amount::UNUSED_IO_AMOUNT,
         unused_label::UNUSED_LABEL,
@@ -890,7 +894,7 @@ pub fn register_plugins(reg: &mut rustc_plugin::Registry<'_>) {
         types::CAST_PTR_ALIGNMENT,
         types::FN_TO_NUMERIC_CAST_WITH_TRUNCATION,
         types::UNIT_CMP,
-        unicode::ZERO_WIDTH_SPACE,
+        unicode::ZERO_WIDTH_SPACES,
         unused_io_amount::UNUSED_IO_AMOUNT,
     ]);
 

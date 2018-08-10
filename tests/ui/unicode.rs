@@ -1,7 +1,7 @@
 
 
 
-#[warn(zero_width_space)]
+#[warn(zero_width_spaces)]
 fn zero() {
     print!("Here >​< is a ZWS, and ​another");
     print!("This\u{200B}is\u{200B}fine");

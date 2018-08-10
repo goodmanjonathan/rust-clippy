@@ -98,3 +98,11 @@ declare_deprecated_lint! {
     pub APPROX_CONSTANT,
     "this lint has been renamed to `approximate_known_constants`"
 }
+
+/// **What it does:** Nothing. This lint has been deprecated.
+///
+/// **Deprecation reason:** This lint has been renamed to `zero_width_spaces`.
+declare_deprecated_lint! {
+    pub ZERO_WIDTH_SPACE,
+    "this lint has been renamed to `zero_width_spaces`"
+}

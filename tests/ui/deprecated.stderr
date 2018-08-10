@@ -42,5 +42,11 @@ error: lint `approx_constant` has been removed: `this lint has been renamed to `
 16 | #[warn(approx_constant)]
    |        ^^^^^^^^^^^^^^^
 
-error: aborting due to 7 previous errors
+error: lint `zero_width_space` has been removed: `this lint has been renamed to `zero_width_spaces``
+  --> $DIR/deprecated.rs:18:8
+   |
+18 | #[warn(zero_width_space)]
+   |        ^^^^^^^^^^^^^^^^
+
+error: aborting due to 8 previous errors
 

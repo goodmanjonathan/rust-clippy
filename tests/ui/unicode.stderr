@@ -4,7 +4,7 @@ error: zero-width space detected
 6 |     print!("Here >​< is a ZWS, and ​another");
   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   |
-  = note: `-D zero-width-space` implied by `-D warnings`
+  = note: `-D zero-width-spaces` implied by `-D warnings`
   = help: Consider replacing the string with:
           ""Here >/u{200B}< is a ZWS, and /u{200B}another""
 

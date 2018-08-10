@@ -16,7 +16,7 @@ use crate::utils::{is_allowed, snippet, span_help_and_lint};
 /// **Example:** You don't see it, but there may be a zero-width space
 /// somewhere in this text.
 declare_clippy_lint! {
-    pub ZERO_WIDTH_SPACE,
+    pub ZERO_WIDTH_SPACES,
     correctness,
     "using a zero-width space in a string literal, which is confusing"
 }
@@ -66,7 +66,7 @@ pub struct Unicode;
 
 impl LintPass for Unicode {
     fn get_lints(&self) -> LintArray {
-        lint_array!(ZERO_WIDTH_SPACE, NON_ASCII_LITERAL, UNICODE_NOT_NFC)
+        lint_array!(ZERO_WIDTH_SPACES, NON_ASCII_LITERAL, UNICODE_NOT_NFC)
     }
 }
 
@@ -99,7 +99,7 @@ fn check_str(cx: &LateContext<'_, '_>, span: Span, id: NodeId) {
     if string.contains('\u{200B}') {
         span_help_and_lint(
             cx,
-            ZERO_WIDTH_SPACE,
+            ZERO_WIDTH_SPACES,
             span,
             "zero-width space detected",
             &format!(
