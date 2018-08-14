@@ -9,10 +9,10 @@ use crate::utils::{get_trait_def_id, higher, implements_trait, SpanlessEq};
 use crate::utils::sugg::Sugg;
 
 /// **What it does:** Checks for calling `.step_by(0)` on iterators,
-/// which never terminates.
+/// which always panics.
 ///
-/// **Why is this bad?** This very much looks like an oversight, since with
-/// `loop { .. }` there is an obvious better way to endlessly loop.
+/// **Why is this bad?** This very much looks like an oversight, since an
+/// explicit panic would be clearer.
 ///
 /// **Known problems:** None.
 ///
@@ -23,7 +23,7 @@ use crate::utils::sugg::Sugg;
 declare_clippy_lint! {
     pub ITERATOR_STEP_BY_ZERO,
     correctness,
-    "using `Iterator::step_by(0)`, which produces an infinite iterator"
+    "using `Iterator::step_by(0)`, which always panics"
 }
 
 /// **What it does:** Checks for zipping a collection with the range of
